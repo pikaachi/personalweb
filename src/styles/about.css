@@ -1,0 +1,230 @@
+/* ============================= */
+/* ABOUT SECTION (FIXED LAYOUT)  */
+/* ============================= */
+
+.about-section {
+  /* Ensure About has real vertical separation from next sections */
+  padding: 72px 0;
+}
+
+.about-section .section-inner {
+  /* Match the same page width pattern as your other sections */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Main grid: image + content */
+.about-container {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+/* ============================= */
+/* PHOTO */
+/* ============================= */
+
+.about-photo-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1; /* keeps it consistently shaped */
+  object-fit: cover;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* subtle premium depth behind image */
+.about-photo-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -18px -18px -18px -18px;
+  border-radius: 30px;
+  background: radial-gradient(
+    60% 60% at 40% 35%,
+    rgba(0, 200, 255, 0.14),
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(10px);
+  z-index: -1;
+}
+
+/* ============================= */
+/* CONTENT */
+/* ============================= */
+
+.about-content {
+  min-width: 0; /* prevents overflow */
+}
+
+.about-content .section-title {
+  margin: 0 0 14px 0;
+}
+
+.about-text {
+  margin: 0 0 18px 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 72ch;
+}
+
+/* ============================= */
+/* METRICS */
+/* ============================= */
+
+.about-metrics {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metric-card {
+  background: rgba(18, 22, 28, 0.70);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  padding: 16px 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 200, 255, 0.30);
+  background: rgba(0, 200, 255, 0.06);
+}
+
+.metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.48);
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 1100px) {
+  .about-container {
+    grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .about-photo {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    padding: 56px 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .about-photo-wrapper {
+    justify-content: center;
+  }
+
+  .about-photo {
+    max-width: 320px;
+  }
+
+  .about-content {
+    text-align: left;
+  }
+
+  .about-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================= */
+/* SCROLL REVEAL ANIMATION */
+/* ============================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slight stagger for metrics */
+.about-metrics .metric-card:nth-child(1) {
+  transition-delay: 100ms;
+}
+
+.about-metrics .metric-card:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.about-metrics .metric-card:nth-child(3) {
+  transition-delay: 300ms;
+}
+/* ============================= */
+/* REVEAL (keep if you already have it) */
+/* ============================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slight stagger for metric cards */
+.about-metrics .metric-card:nth-child(1) {
+  transition-delay: 100ms;
+}
+.about-metrics .metric-card:nth-child(2) {
+  transition-delay: 200ms;
+}
+.about-metrics .metric-card:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+/* ============================= */
+/* PARALLAX LIFT (photo wrapper) */
+/* ============================= */
+.about-photo-wrapper {
+  will-change: transform;
+  transform: translateY(0) rotate(0deg);
+  transition: transform 200ms ease; /* keeps it smooth when scrolling stops */
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .about-photo-wrapper {
+    transform: none !important;
+    transition: none !important;
+  }
+}

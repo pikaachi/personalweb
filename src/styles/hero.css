@@ -1,0 +1,180 @@
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0px 24px 80px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(0,217,255,0.08), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0,255,194,0.06), transparent 55%),
+    #0b0f14;
+}
+
+/* Subtle animated grid background */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  animation: gridMove 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 60px 60px, 60px 60px;
+  }
+}
+
+/* ============================= */
+/* HERO CONTAINER */
+/* ============================= */
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.hero-container.centered {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-left.full {
+  max-width: 900px;
+}
+
+/* ============================= */
+/* HEADLINE */
+/* ============================= */
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+/* Gradient highlight */
+.gradient {
+  background: linear-gradient(90deg, #00d9ff, #00ffc2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================= */
+/* SUBTITLE */
+/* ============================= */
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 32px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================= */
+/* TAGS */
+/* ============================= */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.tags span {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.75);
+  transition: all 0.2s ease;
+}
+
+.tags span:hover {
+  border-color: rgba(0,200,255,0.5);
+  background: rgba(0,200,255,0.08);
+  color: #00eaff;
+  transform: translateY(-2px);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 1100px) {
+  .hero-title {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 20px 60px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .tags span {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 34px;
+  }
+}
+/* ============================= */
+/* CONSISTENT PAGE CONTAINER     */
+/* ============================= */
+
+.section {
+  padding: 72px 0;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Optional: consistent spacing between title/subtitle and content */
+.section-title {
+  margin: 0 0 14px 0;
+}
+
+.section-subtitle {
+  margin: 0 0 26px 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}

@@ -1,0 +1,121 @@
+.auto-visual {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  border-radius: 22px;
+
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+/* subtle internal grid */
+.auto-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.35;
+}
+
+/* nodes */
+.auto-node {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(0, 198, 255, 0.9);
+  box-shadow: 0 0 0 6px rgba(0, 198, 255, 0.12);
+}
+
+.auto-node.n1 { left: 14%; top: 22%; }
+.auto-node.n2 { left: 38%; top: 55%; background: rgba(0, 255, 163, 0.9); box-shadow: 0 0 0 6px rgba(0, 255, 163, 0.12); }
+.auto-node.n3 { left: 62%; top: 28%; }
+.auto-node.n4 { left: 82%; top: 62%; background: rgba(0, 255, 163, 0.9); box-shadow: 0 0 0 6px rgba(0, 255, 163, 0.12); }
+
+/* pulses */
+.auto-pulse {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+  filter: blur(0.2px);
+  animation: pulse 2.6s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+.auto-pulse.p1 { left: 18%; top: 26%; animation-delay: 0ms; }
+.auto-pulse.p2 { left: 42%; top: 59%; animation-delay: 350ms; }
+.auto-pulse.p3 { left: 66%; top: 32%; animation-delay: 700ms; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.7); opacity: 1; }
+}
+
+/* flow line */
+.auto-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 44%;
+  height: 2px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.auto-flow {
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 22%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 198, 255, 0.9), rgba(0, 255, 163, 0.9), transparent);
+  animation: flow 2.4s linear infinite;
+}
+
+@keyframes flow {
+  from { transform: translateX(0); }
+  to { transform: translateX(600%); }
+}
+
+/* label */
+.auto-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.auto-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text-main);
+}
+
+.auto-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .auto-pulse,
+  .auto-flow {
+    animation: none;
+  }
+}

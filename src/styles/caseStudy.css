@@ -1,0 +1,360 @@
+/* ===== OPTIC / Case Study Page ===== */
+
+.case {
+  padding: 110px 0 90px;
+}
+
+.case-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.case-top {
+  margin-bottom: 18px;
+}
+
+.case-back {
+  display: inline-block;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+
+.case-back:hover {
+  text-decoration: underline;
+}
+
+.case-title {
+  margin: 0;
+  font-size: 48px;
+  letter-spacing: -0.6px;
+}
+
+.case-subtitle {
+  margin-top: 12px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 820px;
+}
+
+/* ===== Callouts ===== */
+
+.case-callout {
+  margin-top: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 16px 18px;
+  backdrop-filter: blur(14px);
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+/* ===== Metrics ===== */
+
+.case-metrics {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.case-metric {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 16px;
+  backdrop-filter: blur(14px);
+}
+
+.case-metric .k {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.case-metric .v {
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* ===== Layout: content area only (TOC floats) ===== */
+
+.case-layout {
+  margin-top: 18px;
+  display: block;
+}
+
+.case-main {
+  max-width: 860px;
+  min-width: 0;
+}
+
+/* ===== Case body ===== */
+
+.case-body {
+  margin-top: 14px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 22px;
+  backdrop-filter: blur(14px);
+}
+
+.case-section + .case-section {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-body h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.case-body h3 {
+  margin: 14px 0 8px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.case-body p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.case-body p + p {
+  margin-top: 12px;
+}
+
+.case-body ul {
+  margin: 10px 0 0 18px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.case-body li + li {
+  margin-top: 6px;
+}
+
+/* anchor jumps land nicely under navbar */
+.case-section {
+  scroll-margin-top: 120px;
+}
+
+/* ===== Simple details list ===== */
+
+.case-details {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.case-detail {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.case-detail .k {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.case-detail .v {
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* ===== Tables ===== */
+
+.case-table-wrap {
+  margin-top: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.case-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.case-table th,
+.case-table td {
+  padding: 12px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.case-table th {
+  text-align: left;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.case-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== Skills two-column ===== */
+
+.case-skills {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.case-skill-card {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.14);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.case-skill-card h3 {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.case-skill-card ul {
+  margin: 0 0 0 18px;
+}
+
+.case-skill-card li + li {
+  margin-top: 6px;
+}
+
+/* ===== Floating TOC (Premium) ===== */
+
+.case-toc {
+  position: fixed;
+  right: 40px;
+  top: 140px;
+  width: 200px;
+  z-index: 50;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.case-toc:hover {
+  transform: translateY(-2px);
+}
+
+.toc-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 18px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.toc-title {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.toc-links {
+  display: grid;
+  gap: 10px;
+}
+
+.toc-links a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.18);
+  transition: transform 200ms ease, border 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.toc-links a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.toc-links a.is-active {
+  border-color: rgba(0, 200, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.12);
+  background: rgba(0, 200, 255, 0.08);
+  transform: none;
+}
+
+.toc-top {
+  display: inline-block;
+  margin-top: 14px;
+  text-decoration: none;
+  color: var(--accent-blue);
+  font-size: 13px;
+}
+
+.toc-top:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1000px) {
+  .case-inner {
+    padding: 0 18px;
+  }
+
+  .case-title {
+    font-size: 36px;
+  }
+
+  .case-main {
+    max-width: 100%;
+  }
+
+  .case-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-toc {
+    display: none;
+  }
+
+  .case-skills {
+    grid-template-columns: 1fr;
+  }
+
+  .case-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .case-metrics {
+    grid-template-columns: 1fr;
+  }
+}

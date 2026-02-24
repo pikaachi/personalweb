@@ -1,0 +1,34 @@
+.backtop {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+
+  color: var(--text-main);
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 200ms ease, transform 200ms ease, background 200ms ease;
+  z-index: 50;
+}
+
+.backtop.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.backtop:hover {
+  background: rgba(0, 0, 0, 0.65);
+}

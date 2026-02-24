@@ -1,0 +1,157 @@
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+/* Filters */
+.exp-filters {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-chip {
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+}
+
+.filter-chip:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text-main);
+}
+
+.filter-chip.active {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.55);
+  color: var(--text-main);
+}
+
+/* Timeline */
+.timeline {
+  margin-top: 34px;
+  position: relative;
+  padding-left: 30px;
+  border-left: 2px solid rgba(255, 255, 255, 0.10);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 26px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -11px;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.10);
+}
+
+/* Glass card */
+.timeline-content {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 22px 22px;
+  backdrop-filter: blur(14px);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.company-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  padding: 6px;
+}
+
+.timeline-role {
+  margin: 0;
+  font-size: 20px;
+}
+
+.timeline-meta {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.timeline-summary {
+  margin-top: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.timeline-bullets {
+  margin-top: 12px;
+  padding-left: 18px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.timeline-bullets li {
+  margin: 6px 0;
+}
+
+/* Reuse your existing .chip style from selectedWork.css if it exists globally.
+   If not, define it here too: */
+.timeline-tags {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timeline-tags .chip {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .timeline {
+    padding-left: 18px;
+  }
+
+  .timeline-marker {
+    left: -10px;
+  }
+
+  .timeline-content {
+    padding: 18px;
+  }
+
+  .timeline-role {
+    font-size: 18px;
+  }
+}
+.experience-filters {
+  display: none !important;
+}

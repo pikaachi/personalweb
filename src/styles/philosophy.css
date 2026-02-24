@@ -1,0 +1,47 @@
+.philosophy-grid {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.philosophy-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 24px;
+  backdrop-filter: blur(14px);
+  transition: transform 250ms ease, border 250ms ease;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-blue);
+}
+
+.philosophy-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.philosophy-card p {
+  margin-top: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
