@@ -139,7 +139,7 @@ export default function About() {
           </h2>
 
           <p className="about-text reveal">
-            I specialize in AI/ML products — from defining the use case to building
+            I specialize in AI/ML products. From defining the use case to building
             the system to driving adoption at scale. I've led GenAI and predictive
             analytics initiatives that replaced manual workflows, unlocked
             organizational capabilities, and delivered measurable cost savings.
