@@ -15,7 +15,7 @@ export default function Hero() {
           {/* Status badge */}
           <div className="hero-badge">
             <span className="hero-badge-dot" />
-            Open to Senior AI PM Roles
+            Open to AI PM Roles
           </div>
 
           {/* Headline */}
