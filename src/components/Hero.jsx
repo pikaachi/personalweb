@@ -61,7 +61,7 @@ export default function Hero() {
             <div className="hero-metric-divider" />
             <div className="hero-metric">
               <div className="hero-metric-val">60+</div>
-              <div className="hero-metric-label">AI Tools Deployed</div>
+              <div className="hero-metric-label">AI RAG Tools Deployed</div>
             </div>
             <div className="hero-metric-divider" />
             <div className="hero-metric">
