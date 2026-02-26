@@ -1,147 +1,285 @@
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
+/* ============================= */
+/* EXPERIENCE SECTION            */
+/* ============================= */
+
+/* Eyebrow */
+.exp-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(0, 200, 255, 0.8);
+  margin-bottom: 8px;
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 650ms ease, transform 650ms ease;
-}
+/* ============================= */
+/* TIMELINE TRACK                */
+/* ============================= */
 
-/* Filters */
-.exp-filters {
-  margin-top: 22px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.filter-chip {
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: 13px;
-  cursor: pointer;
-
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--glass-border);
-  color: var(--text-muted);
-}
-
-.filter-chip:hover {
-  border-color: rgba(255, 255, 255, 0.28);
-  color: var(--text-main);
-}
-
-.filter-chip.active {
-  background: rgba(56, 189, 248, 0.15);
-  border-color: rgba(56, 189, 248, 0.55);
-  color: var(--text-main);
-}
-
-/* Timeline */
 .timeline {
-  margin-top: 34px;
+  margin-top: 36px;
   position: relative;
-  padding-left: 30px;
-  border-left: 2px solid rgba(255, 255, 255, 0.10);
+  padding-left: 32px;
+}
+
+/* Vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 200, 255, 0.5),
+    rgba(0, 200, 255, 0.15) 60%,
+    transparent
+  );
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================= */
+/* TIMELINE MARKER               */
+/* ============================= */
 
 .timeline-marker {
   position: absolute;
-  left: -11px;
-  top: 24px;
+  left: -39px;
+  top: 26px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--accent-blue);
-  box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.10);
+  background: rgba(0, 200, 255, 0.4);
+  border: 2px solid rgba(0, 200, 255, 0.5);
+  box-shadow: 0 0 0 4px rgba(0, 200, 255, 0.08);
 }
 
-/* Glass card */
+/* Current role — glowing pulsing dot */
+.timeline-marker--current {
+  background: linear-gradient(135deg, #00d9ff, #00ffc2);
+  border: none;
+  box-shadow:
+    0 0 0 4px rgba(0, 200, 255, 0.15),
+    0 0 12px rgba(0, 200, 255, 0.4);
+  animation: markerPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(0, 200, 255, 0.15), 0 0 12px rgba(0, 200, 255, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(0, 200, 255, 0.08), 0 0 20px rgba(0, 200, 255, 0.25); }
+}
+
+/* ============================= */
+/* CARD                          */
+/* ============================= */
+
 .timeline-content {
+  position: relative;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 18px;
-  padding: 22px 22px;
+  padding: 24px;
   backdrop-filter: blur(14px);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
+
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00d9ff, #00ffc2);
+  opacity: 0.5;
+  border-radius: 18px 18px 0 0;
+  transition: opacity 0.25s ease;
+}
+
+.timeline-item:hover .timeline-content {
+  border-color: rgba(0, 200, 255, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 200, 255, 0.05);
+}
+
+.timeline-item:hover .timeline-content::before {
+  opacity: 0.9;
+}
+
+/* ============================= */
+/* HEADER                        */
+/* ============================= */
 
 .timeline-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
 }
 
 .company-logo {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--glass-border);
   padding: 6px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.timeline-titleblock {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Company name row with optional badge */
+.timeline-company-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+
+.timeline-company {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(0, 200, 255, 0.85);
+  letter-spacing: 0.2px;
+}
+
+.timeline-current-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: rgba(0, 234, 255, 0.9);
+  background: rgba(0, 200, 255, 0.12);
+  border: 1px solid rgba(0, 200, 255, 0.3);
+  border-radius: 999px;
+  padding: 2px 8px;
 }
 
 .timeline-role {
-  margin: 0;
-  font-size: 20px;
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--text-main);
+  line-height: 1.3;
 }
 
 .timeline-meta {
-  margin-top: 8px;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-muted);
+  opacity: 0.8;
 }
+
+/* ============================= */
+/* BODY                          */
+/* ============================= */
 
 .timeline-summary {
   margin-top: 14px;
+  font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.65;
+  line-height: 1.7;
+  font-style: italic;
+  border-left: 2px solid rgba(0, 200, 255, 0.25);
+  padding-left: 12px;
 }
 
 .timeline-bullets {
-  margin-top: 12px;
-  padding-left: 18px;
+  margin-top: 14px;
+  padding-left: 16px;
   line-height: 1.75;
   color: var(--text-muted);
+  font-size: 14px;
 }
 
 .timeline-bullets li {
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
-/* Reuse your existing .chip style from selectedWork.css if it exists globally.
-   If not, define it here too: */
+.timeline-bullets li:first-child {
+  margin-top: 0;
+}
+
+/* ============================= */
+/* TAGS                          */
+/* ============================= */
+
 .timeline-tags {
-  margin-top: 14px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .timeline-tags .chip {
-  padding: 7px 12px;
+  padding: 5px 11px;
   border-radius: 999px;
   border: 1px solid var(--glass-border);
   background: rgba(255, 255, 255, 0.03);
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 12px;
 }
+
+/* ============================= */
+/* SCROLL REVEAL                 */
+/* ============================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms ease, transform 650ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* MOTION SAFETY                 */
+/* ============================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    transition: none;
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
+
+  .timeline-marker--current {
+    animation: none;
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
 
 @media (max-width: 700px) {
   .timeline {
-    padding-left: 18px;
+    padding-left: 22px;
   }
 
   .timeline-marker {
-    left: -10px;
+    left: -29px;
+    width: 12px;
+    height: 12px;
   }
 
   .timeline-content {
@@ -149,9 +287,10 @@
   }
 
   .timeline-role {
-    font-size: 18px;
+    font-size: 16px;
   }
-}
-.experience-filters {
-  display: none !important;
+
+  .timeline-summary {
+    font-size: 13px;
+  }
 }

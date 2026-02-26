@@ -4,35 +4,35 @@ import "../styles/experience.css";
 const EXPERIENCE = [
   {
     id: "samsung",
-    company: "Samsung",
-    role: "AI / Product Manager",
+    company: "Samsung Semiconductor",
+    role: "Technical Product Manager — AI & Data",
     period: "Sep 2022 – Present",
-    location: "Data Solutions",
+    current: true,
     summary:
-      "Led AI-driven digital transformation initiatives across semiconductor manufacturing operations.",
+      "Leading AI product strategy and delivery across a 300+ person engineering organization. End-to-end ownership from use case discovery to production deployment and org-wide adoption.",
     bullets: [
-      "Drove ML-driven automation reducing inefficiencies by 80%, saving $3M+.",
-      "Managed a $4M product portfolio supporting 4nm technology transfer across global foundries.",
-      "Delivered a $4.2M fab-critical platform upgrade on schedule while sustaining 99.9% uptime across 5+ teams.",
-      "Developed GenAI RAG pipelines reducing investigation cycles by 40% and saving analysts 12+ hours/week.",
+      "Built and shipped three production AI products — a GenAI knowledge automation system, a predictive ML model, and a self-serve AI platform — collectively driving $3M+ in annual savings and 200+ daily active users.",
+      "Managed a $4M product portfolio and delivered a $4.2M platform-critical infrastructure upgrade on schedule with 99.9% uptime across 5+ cross-functional teams.",
+      "Initiated and led a 300+ person enterprise GenAI adoption program with no prior budget or mandate — taking the organization from zero AI deployment to 60+ self-serve AI tools in under 18 months.",
+      "Developed GenAI RAG pipelines that reduced expert investigation cycles by 92%, freeing 12+ analyst hours per week.",
     ],
-    tags: ["AI/ML", "MLOps", "Platform", "Roadmap", "Execution"],
+    tags: ["AI/ML Product", "GenAI", "RAG", "MLOps", "Platform", "Program Leadership"],
     logo: "/logos/samsung.png",
   },
   {
     id: "jnj",
     company: "Johnson & Johnson",
-    role: "Product Owner / Digital Systems",
+    role: "Product Owner — Digital Systems",
     period: "Mar 2020 – Aug 2022",
-    location: "Digital Systems",
+    current: false,
     summary:
-      "Owned digital system capabilities, aligning stakeholders and delivering improvements through agile execution.",
+      "Owned a digital systems product across a regulated medical device environment. Drove feature delivery, roadmap prioritization, and cross-functional alignment from requirements through release.",
     bullets: [
-      "Defined product requirements, user stories, and acceptance criteria across cross-functional stakeholders.",
-      "Tracked KPIs and refined roadmap through iterative agile delivery cycles.",
-      "Partnered with engineering, compliance, and business teams to ship reliable improvements.",
+      "Defined and owned product requirements, user stories, and acceptance criteria, translating complex cross-functional stakeholder needs into a coherent, deliverable backlog.",
+      "Maintained roadmap health through iterative agile delivery cycles, balancing technical debt, compliance constraints, and business priorities.",
+      "Partnered with engineering, compliance, and business stakeholders to ship product improvements reliably and maintaining delivery cadence in a high-accountability regulated environment.",
     ],
-    tags: ["Product", "Agile", "Stakeholders", "Delivery"],
+    tags: ["Product Ownership", "Agile", "Regulated Environments", "Roadmap", "Stakeholder Management"],
     logo: "/logos/jnj.png",
   },
   {
@@ -40,14 +40,14 @@ const EXPERIENCE = [
     company: "Medtronic",
     role: "R&D Engineer",
     period: "May 2019 – Nov 2019",
-    location: "R&D",
+    current: false,
     summary:
-      "Supported engineering analysis and documentation in an R&D environment focused on quality and reliability.",
+      "Early-career engineering role in medical device R&D. Built the technical foundation, structured analysis, cross-functional collaboration, quality standards, that now underpins how I work with data scientists and engineers as a PM.",
     bullets: [
-      "Contributed to analysis, testing support, and documentation improvements.",
-      "Collaborated with engineers to support development workflows and build readiness.",
+      "Conducted engineering analysis and testing support in a regulated R&D environment with rigorous documentation and quality standards.",
+      "Collaborated directly with engineers across development workflows, building the cross-functional working style that carries into every PM role since.",
     ],
-    tags: ["Engineering", "Quality", "Documentation"],
+    tags: ["R&D", "Engineering", "Medical Devices", "Quality Systems"],
     logo: "/logos/medtronic.png",
   },
 ];
@@ -65,15 +65,11 @@ export default function Experience() {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-
-          requestAnimationFrame(() => {
-            entry.target.classList.add("is-visible");
-          });
-
+          requestAnimationFrame(() => entry.target.classList.add("is-visible"));
           io.unobserve(entry.target);
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
     );
 
     items.forEach((el) => io.observe(el));
@@ -83,12 +79,13 @@ export default function Experience() {
   return (
     <section className="section" id="experience" ref={sectionRef}>
       <div className="section-inner">
-        <h2 className="section-title reveal">Professional Experience</h2>
-        <p
-          className="section-subtitle reveal"
-          style={{ transitionDelay: "80ms" }}
-        >
-          A progression of roles across AI, product delivery, and engineering.
+
+        <div className="exp-eyebrow reveal">Career</div>
+        <h2 className="section-title reveal" style={{ transitionDelay: "60ms" }}>
+          Professional Experience
+        </h2>
+        <p className="section-subtitle reveal" style={{ transitionDelay: "120ms" }}>
+          From R&D engineering to enterprise AI product leadership — a clear progression toward building things that scale.
         </p>
 
         <div className="timeline">
@@ -96,44 +93,51 @@ export default function Experience() {
             <div
               key={job.id}
               className="timeline-item reveal"
-              style={{ transitionDelay: `${140 + idx * 80}ms` }}
+              style={{ transitionDelay: `${160 + idx * 90}ms` }}
             >
-              <div className="timeline-marker" />
+              {/* Timeline dot — pulsing for current role */}
+              <div className={`timeline-marker${job.current ? " timeline-marker--current" : ""}`} />
 
               <div className="timeline-content">
+
+                {/* Header */}
                 <div className="timeline-header">
-                  {job.logo ? (
+                  {job.logo && (
                     <img
                       src={job.logo}
                       alt={`${job.company} logo`}
                       className="company-logo"
                     />
-                  ) : null}
-
+                  )}
                   <div className="timeline-titleblock">
-                    <h3 className="timeline-role">{job.role}</h3>
-                    <div className="timeline-meta">
-                      {job.company} • {job.period}
-                      {job.location ? ` • ${job.location}` : ""}
+                    <div className="timeline-company-row">
+                      <span className="timeline-company">{job.company}</span>
+                      {job.current && (
+                        <span className="timeline-current-badge">Current</span>
+                      )}
                     </div>
+                    <h3 className="timeline-role">{job.role}</h3>
+                    <div className="timeline-meta">{job.period}</div>
                   </div>
                 </div>
 
+                {/* Summary */}
                 <p className="timeline-summary">{job.summary}</p>
 
+                {/* Bullets */}
                 <ul className="timeline-bullets">
                   {job.bullets.map((b, i) => (
                     <li key={i}>{b}</li>
                   ))}
                 </ul>
 
+                {/* Tags */}
                 <div className="timeline-tags">
                   {job.tags.map((t) => (
-                    <span key={t} className="chip">
-                      {t}
-                    </span>
+                    <span key={t} className="chip">{t}</span>
                   ))}
                 </div>
+
               </div>
             </div>
           ))}

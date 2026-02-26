@@ -4,13 +4,13 @@ import Navbar from "../components/Navbar";
 import "../styles/caseStudy.css";
 
 const SECTIONS = [
-  { id: "overview", label: "Overview" },
-  { id: "problem", label: "The Problem" },
-  { id: "phases", label: "What I Did" },
-  { id: "usecases", label: "Use Case Summary" },
-  { id: "results", label: "Program Results" },
-  { id: "skills", label: "Skills Demonstrated" },
-  { id: "lessons", label: "What I Learned" },
+  { id: "overview",  label: "Overview" },
+  { id: "problem",   label: "The Problem" },
+  { id: "phases",    label: "What I Did" },
+  { id: "usecases",  label: "Use Cases" },
+  { id: "results",   label: "Program Results" },
+  { id: "skills",    label: "Skills" },
+  { id: "lessons",   label: "What I Learned" },
 ];
 
 export default function GenAIAdoptionCaseStudy() {
@@ -19,7 +19,6 @@ export default function GenAIAdoptionCaseStudy() {
   useEffect(() => {
     const targets = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean);
     if (!targets.length) return;
-
     const io = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -29,7 +28,6 @@ export default function GenAIAdoptionCaseStudy() {
       },
       { root: null, rootMargin: "-20% 0px -70% 0px", threshold: 0.01 }
     );
-
     targets.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
@@ -37,225 +35,253 @@ export default function GenAIAdoptionCaseStudy() {
   return (
     <>
       <Navbar />
-
       <section className="section case" id="top">
         <div className="bg-grid" />
-
         <div className="case-inner">
+
+          {/* HEADER */}
           <div className="case-top">
             <Link className="case-back" to="/#work">← Back to Selected Work</Link>
+            <div className="case-tag-row">
+              <span className="case-tag">Program Leadership</span>
+              <span className="case-tag">Change Management</span>
+              <span className="case-tag">LLMs</span>
+              <span className="case-tag">Org Transformation</span>
+            </div>
             <h1 className="case-title">GenAI Adoption Program</h1>
-            <p className="case-subtitle">
-              Building a department-wide GenAI capability from zero — in a change-resistant manufacturing environment
-            </p>
+            <p className="case-subtitle">Building an Enterprise AI Capability From Zero in a Change-Resistant Organization</p>
           </div>
 
-          <div className="case-callout">
-            This program started with no mandate, no budget, no team, and no executive champion. Every resource was secured through demonstrated value and a clear vision.
-            Three products shipped. One department transformed.
+          {/* HERO CALLOUT */}
+          <div className="case-callout case-callout--hero">
+            <span className="callout-accent">No mandate. No budget. No team. No executive sponsor.</span>
+            <br /><br />
+            I took a 300+ person organization from zero AI deployment to 200+ daily active users. Three production products. 60+ self-serve AI tools built independently by the team.
+            <br /><br />
+            <span className="callout-accent">The technology was the easy part. The people were the real challenge.</span>
           </div>
 
+          {/* METRICS */}
           <div className="case-metrics">
-            <div className="case-metric"><div className="k">Daily active users</div><div className="v">100+</div></div>
-            <div className="case-metric"><div className="k">Self-serve RAG agents built</div><div className="v">60+</div></div>
-            <div className="case-metric"><div className="k">Onboarding time saved</div><div className="v">3 wks</div></div>
-            <div className="case-metric"><div className="k">Use cases shipped</div><div className="v">3 of 5</div></div>
+            <div className="case-metric">
+              <div className="k">Daily Active Users</div>
+              <div className="v">200+</div>
+            </div>
+            <div className="case-metric">
+              <div className="k">Self-Serve AI Tools Built</div>
+              <div className="v">60+</div>
+            </div>
+            <div className="case-metric">
+              <div className="k">Onboarding Time Saved</div>
+              <div className="v">3 wks</div>
+            </div>
+            <div className="case-metric">
+              <div className="k">Use Cases Shipped</div>
+              <div className="v">3 of 5</div>
+            </div>
           </div>
 
+          {/* BODY + TOC */}
           <div className="case-layout">
             <div className="case-main">
               <div className="case-body">
+
+                {/* OVERVIEW */}
                 <section id="overview" className="case-section">
-                  <h2>From Zero GenAI Awareness to 200+ Daily Users</h2>
-                  <p>
-                    When GenAI adoption was accelerating across industries, the Metrology department, operating in a high-stakes semiconductor manufacturing environment, still
-                    hadn't moved at all. Changing the status quo in manufacturing carries real production risk, and leadership lacked both the vocabulary and the vision to evaluate
-                    where AI could help. I self-initiated a full GenAI adoption program: from education and infrastructure to use case development, product delivery, and ongoing
-                    self-service capability.
-                  </p>
-
+                  <div className="section-label">Overview</div>
+                  <h2>From Zero to Org-Wide AI Capability</h2>
+                  <p>AI adoption fails when organizations skip the human work. This organization had strong domain expertise and zero AI vocabulary. Leadership could not evaluate AI applicability because they had no frame of reference for it.</p>
+                  <p>External AI services were blocked for security reasons. Internal infrastructure existed but was unused. The gap was awareness and leadership — not technology.</p>
                   <div className="case-details">
-                    <div className="case-detail"><div className="k">Industry</div><div className="v">Semiconductor Manufacturing</div></div>
-                    <div className="case-detail"><div className="k">Constraint</div><div className="v">Enterprise ban on external AI services (Claude, OpenAI) for data security reasons</div></div>
-                    <div className="case-detail"><div className="k">Goal</div><div className="v">Org-wide capability transfer vs. central bottleneck</div></div>
+                    <div className="case-detail"><div className="k">My Role</div><div className="v">Self-initiated GenAI Adoption Lead — identified the opportunity, built the program, led the delivery</div></div>
+                    <div className="case-detail"><div className="k">Scope</div><div className="v">300+ person organization across engineering, analyst, and technician roles</div></div>
+                    <div className="case-detail"><div className="k">Products Shipped</div><div className="v">OPTIC, Self-Serve AI Platform, Knowledge Base Agent</div></div>
+                    <div className="case-detail"><div className="k">Use Cases</div><div className="v">5 evaluated — 3 shipped, 2 paused with documented rationale</div></div>
+                    <div className="case-detail"><div className="k">AI Stack</div><div className="v">Open-source LLMs, RAG, Prompt Engineering, Multimodal LLM</div></div>
                   </div>
                 </section>
 
+                {/* PROBLEM */}
                 <section id="problem" className="case-section">
-                  <h2>A Change-Resistant Environment With Untapped Potential</h2>
-                  <p>
-                    Manufacturing environments resist change by design as process stability is a production value, not just an organizational preference. When I identified the opportunity
-                    to deploy GenAI across the Metrology department, the barriers were significant: near-zero awareness of what LLMs could actually do, an enterprise ban on external AI
-                    services like ChatGPT and Claude, deep cultural skepticism, and no established product team or infrastructure.
-                  </p>
-                  <p>
-                    The entire department's concept of GenAI was asking ChatGPT questions. Nobody, including technical leaders, could articulate use cases pertaining to the industry.
-                  </p>
-                  <ul>
-                    <li>Department-wide concept of GenAI limited to consumer chatbot interactions</li>
-                    <li>Enterprise ban on external AI services (Claude, OpenAI) for data security reasons</li>
-                    <li>No internal GenAI infrastructure, product team, or deployment precedent</li>
-                    <li>Cultural resistance rooted in production stability requirements</li>
-                    <li>Leadership skepticism as technical leaders couldn't visualize applicable use cases</li>
-                  </ul>
+                  <div className="section-label">The Problem</div>
+                  <h2>Strong Domain Expertise. Zero AI Vocabulary.</h2>
+                  <p>Change-resistant operational environments resist AI by design — process stability is a core value, not just a preference. The barriers here were compounded by a security policy blocking all external AI services.</p>
+                  <div className="case-insight">
+                    The internal AI infrastructure already existed. The barrier was imagination, not access.
+                  </div>
+                  <div className="stat-row">
+                    <div className="stat-pill"><span className="stat-val">0</span><span className="stat-desc">AI products at start</span></div>
+                    <div className="stat-pill"><span className="stat-val">300+</span><span className="stat-desc">person organization</span></div>
+                    <div className="stat-pill"><span className="stat-val">0</span><span className="stat-desc">leadership sponsors</span></div>
+                    <div className="stat-pill"><span className="stat-val">0</span><span className="stat-desc">budget at start</span></div>
+                  </div>
                 </section>
 
+                {/* PHASES */}
                 <section id="phases" className="case-section">
-                  <h2>Five Phases — From Idea to Institutional Capability</h2>
+                  <div className="section-label">What I Did</div>
+                  <h2>Five Phases — From Zero to Institutional Capability</h2>
 
-                  <h3>Phase 1 — Proof-of-Concept to Unlock Leadership Buy-In</h3>
-                  <p>
-                    Explaining RAG architectures to manufacturing executives wasn't going to work. I built a working RAG prototype independently and demonstrated it directly to technical leaders,
-                    showing their own process data being queried intelligently in real time. Seeing it converted skepticism into curiosity. I received departmental green light to lead the program.
-                  </p>
+                  <div className="step-list">
+                    <div className="step-item">
+                      <div className="step-num">01</div>
+                      <div className="step-content">
+                        <div className="step-title">Proof-of-Concept to Unlock Buy-In</div>
+                        <div className="step-desc">Built a working prototype independently and demonstrated it live using real organizational data. Watching it work converted skepticism into curiosity. Leadership approved the program the same day.</div>
+                      </div>
+                    </div>
+                    <div className="step-item">
+                      <div className="step-num">02</div>
+                      <div className="step-content">
+                        <div className="step-title">Education Program — 150+ Attendees</div>
+                        <div className="step-desc">Designed and delivered a multi-session curriculum covering how LLMs work, prompt engineering, RAG versus model training, and guardrail design. Goal: give every person enough understanding to identify where AI could help their own work.</div>
+                      </div>
+                    </div>
+                    <div className="step-item">
+                      <div className="step-num">03</div>
+                      <div className="step-content">
+                        <div className="step-title">Use Case Discovery and Prioritization</div>
+                        <div className="step-desc">Conducted structured interviews with domain experts across every team. Evaluated each idea against data availability, operational impact, and technical feasibility. Five use cases prioritized for development.</div>
+                      </div>
+                    </div>
+                    <div className="step-item">
+                      <div className="step-num">04</div>
+                      <div className="step-content">
+                        <div className="step-title">Three Shipped Products</div>
+                        <div className="step-desc">OPTIC eliminated a 1 to 2 hour expert escalation chain. The Self-Serve AI Platform enabled 60+ independent AI tools. The Knowledge Base Agent reduced onboarding by 3 weeks per cohort.</div>
+                      </div>
+                    </div>
+                    <div className="step-item">
+                      <div className="step-num">05</div>
+                      <div className="step-content">
+                        <div className="step-title">Two Disciplined Pauses</div>
+                        <div className="step-desc">Two use cases did not ship — and those decisions were as important as the three that did. Both were paused with documented technical prerequisites, not abandoned.</div>
+                      </div>
+                    </div>
+                  </div>
 
-                  <h3>Phase 2 — Department-Wide Education (150+ Attendees)</h3>
-                  <p>
-                    Before any product work could begin, I had to address the foundational knowledge gap. I designed and delivered a multi-session education program attended by 150+ people across
-                    engineering, analyst, and technician roles. The curriculum covered what LLMs actually are, real-world industry use cases, prompt engineering fundamentals, the difference between
-                    RAG and model training, and how to design guardrails for high-stakes environments.
-                  </p>
-
-                  <h3>Phase 3 — Use Case Discovery & Prioritization</h3>
-                  <p>
-                    Following the education sessions, I conducted structured user interviews with SMEs across Metrology teams to identify workflows where GenAI could provide genuine value. I brought
-                    use cases to the Data Science team with structured requirements and assembled a cross-functional product team. From all ideas, 5 use cases were prioritized, evaluated on data availability,
-                    workflow impact, and technical risk.
-                  </p>
-
-                  <h3>Phase 4 — Three Shipped Products</h3>
-                  <p><strong>OPTIC — RAG-Powered Parameter Optimizer</strong></p>
-                  <p>
-                    A RAG system trained on historical parameter data, research papers, and tool manuals that delivers expert-level recipe parameter recommendations in under 15 seconds, replacing a 1–2 hour SME
-                    escalation chain. Full case study available separately.
-                  </p>
-
-                  <p><strong>RAGSaaS — Self-Serve RAG Platform</strong></p>
-                  <p>
-                    Rather than centralizing all AI capability in the DS team, which would have created a permanent bottleneck, I built RAGSaaS as a self-serve platform that empowered any engineer to build their
-                    own document-grounded AI assistant. I trained users on chunking strategy, retrieval tuning, indexing configuration, and guardrail setup. Result: 60+ RAG agents independently created by engineers
-                    across the department. RAGSaaS transferred AI capability from a central team to every engineer, a force multiplier that no single product could achieve.
-                  </p>
-
-                  <p><strong>SOP & Manual Agent — Onboarding Accelerator</strong></p>
-                  <p>
-                    A RAG agent trained on the full library of Standard Operating Procedures and equipment manuals. Previously, finding accurate procedural information required manually searching hundreds of documents —
-                    costly during onboarding and daily operations. The agent reduced new engineer and technician onboarding by 3 weeks. With 5 engineers and 7 technicians onboarded annually on average, this translates
-                    to ~360 person-hours of onboarding time saved per year. Adoption was verified by comparing document access rates vs. agent query volume.
-                  </p>
-
-                  <h3>Phase 5 — Two Disciplined Pauses</h3>
-                  <p>Two use cases did not ship and those decisions were as important as the three that did.</p>
-                  <ul>
-                    <li>
-                      Image QC Classifier: A multimodal LLM to classify good vs. bad measurement images was paused due to insufficient historical data labeling. Relabeling the full image dataset was too large a scope
-                      to pursue without guaranteed model improvement. Paused with documented data labeling requirements as prerequisites for any future attempt.
-                    </li>
-                    <li>
-                      Parameter Extraction from Tool Images: Inconsistent image formats across tool generations made reliable parameter extraction infeasible with current multimodal capabilities. Paused with documented
-                      technical constraints and placed on a future roadmap contingent on improved multimodal accuracy.
-                    </li>
-                  </ul>
-
-                  <div className="case-callout" style={{ marginTop: 14 }}>
-                    Knowing when not to ship is a senior product judgment. In a manufacturing environment, an unreliable AI tool is worse than no tool at all.
-                    Both pauses protected production quality — and preserved the department's trust in the program.
+                  <div className="case-insight" style={{ marginTop: 18 }}>
+                    Shipping an AI tool that fails unpredictably is worse than not shipping at all. Both pauses protected organizational trust — and that trust is why leadership now sponsors new AI initiatives.
                   </div>
                 </section>
 
+                {/* USE CASES */}
                 <section id="usecases" className="case-section">
-                  <h2>Use Case Summary</h2>
-                  <div className="case-table-wrap">
-                    <table className="case-table">
-                      <thead>
-                        <tr>
-                          <th>Use Case</th>
-                          <th>Outcome</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr><td>OPTIC</td><td>Recipe tuning: 1–2 hrs → &lt;5 min. 90%+ automated resolution. ~200 users.</td><td>SHIPPED</td></tr>
-                        <tr><td>RAGSaaS</td><td>60+ self-serve RAG agents built independently by engineers across the dept.</td><td>SHIPPED</td></tr>
-                        <tr><td>SOP Agent</td><td>3-week onboarding reduction. ~360 hrs/year saved. Verified via access rate data.</td><td>SHIPPED</td></tr>
-                        <tr><td>Image QC Classifier</td><td>Paused — incomplete data labeling at scale. Requirements documented for V2.</td><td>PAUSED</td></tr>
-                        <tr><td>Parameter Extraction</td><td>Paused — inconsistent image formats across tool generations. V2 roadmap.</td><td>PAUSED</td></tr>
-                      </tbody>
-                    </table>
+                  <div className="section-label">Use Cases</div>
+                  <h2>5 Evaluated. 3 Shipped. 2 Paused.</h2>
+
+                  <div className="usecase-grid">
+                    <div className="usecase-card usecase-card--shipped">
+                      <div className="usecase-status">SHIPPED</div>
+                      <div className="usecase-name">OPTIC</div>
+                      <div className="usecase-desc">Expert knowledge automation. 1 to 2 hour escalation chain replaced by AI recommendation in 15 seconds. 90%+ automated resolution. 200+ daily users.</div>
+                    </div>
+                    <div className="usecase-card usecase-card--shipped">
+                      <div className="usecase-status">SHIPPED</div>
+                      <div className="usecase-name">Self-Serve AI Platform</div>
+                      <div className="usecase-desc">Any team member can build their own AI assistant without engineering support. 60+ tools built independently across the organization.</div>
+                    </div>
+                    <div className="usecase-card usecase-card--shipped">
+                      <div className="usecase-status">SHIPPED</div>
+                      <div className="usecase-name">Knowledge Base Agent</div>
+                      <div className="usecase-desc">AI assistant trained on all operational documentation. Reduced new team member onboarding by 3 weeks. ~360 hours saved annually.</div>
+                    </div>
+                    <div className="usecase-card usecase-card--paused">
+                      <div className="usecase-status">PAUSED</div>
+                      <div className="usecase-name">Image QC Classifier</div>
+                      <div className="usecase-desc">Paused due to insufficient data labeling at scale. Prerequisites documented. Placed on V2 roadmap.</div>
+                    </div>
+                    <div className="usecase-card usecase-card--paused">
+                      <div className="usecase-status">PAUSED</div>
+                      <div className="usecase-name">Parameter Extraction</div>
+                      <div className="usecase-desc">Paused due to inconsistent input formats across tool generations. Technical constraints documented for V2.</div>
+                    </div>
                   </div>
                 </section>
 
+                {/* RESULTS */}
                 <section id="results" className="case-section">
-                  <h2>Program Results</h2>
+                  <div className="section-label">Program Results</div>
+                  <h2>Before and After</h2>
                   <div className="case-table-wrap">
-                    <table className="case-table">
+                    <table className="case-table case-table--compare">
                       <thead>
                         <tr>
-                          <th>Before the Program</th>
-                          <th>After the Program</th>
+                          <th>Before</th>
+                          <th className="th-after">After</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr><td>GenAI = ChatGPT for asking questions</td><td>150+ people trained on LLMs, RAG, and prompt engineering</td></tr>
-                        <tr><td>0 daily GenAI users</td><td>100+ daily active users across engineers, analysts, technicians</td></tr>
-                        <tr><td>0 AI products in production</td><td>3 AI products live in production</td></tr>
-                        <tr><td>All AI capability in central DS team</td><td>60+ self-serve RAG agents built independently by engineers</td></tr>
-                        <tr><td>3-month analyst onboarding</td><td>3 weeks saved per cohort via SOP Agent</td></tr>
-                        <tr><td>Leadership skeptical of AI applicability</td><td>Technical leaders actively sponsoring new AI use cases</td></tr>
+                        <tr><td className="td-before">AI = consumer chatbots</td><td className="td-after">150+ people trained on LLMs, RAG, and prompt engineering</td></tr>
+                        <tr><td className="td-before">Zero daily AI users</td><td className="td-after">200+ daily active users</td></tr>
+                        <tr><td className="td-before">Zero AI products in production</td><td className="td-after">3 AI products live in daily use</td></tr>
+                        <tr><td className="td-before">All AI dependent on a small technical team</td><td className="td-after">60+ self-serve tools built independently</td></tr>
+                        <tr><td className="td-before">New hires needed months to reach independence</td><td className="td-after">Onboarding reduced by 3 weeks per cohort</td></tr>
+                        <tr><td className="td-before">Leadership skeptical of AI applicability</td><td className="td-after">Leadership actively sponsoring new AI initiatives</td></tr>
                       </tbody>
                     </table>
                   </div>
                 </section>
 
+                {/* SKILLS */}
                 <section id="skills" className="case-section">
-                  <h2>Skills Demonstrated</h2>
-
+                  <div className="section-label">Skills Demonstrated</div>
+                  <h2>What This Required</h2>
                   <div className="case-skills">
                     <div className="case-skill-card">
-                      <h3>AI/ML Program Skills</h3>
+                      <h3>AI/ML Program</h3>
                       <ul>
-                        <li>GenAI use case discovery & prioritization</li>
-                        <li>RAG system & platform architecture</li>
+                        <li>GenAI use case discovery and prioritization</li>
+                        <li>RAG system and platform architecture</li>
                         <li>Prompt engineering curriculum design</li>
-                        <li>Multimodal LLM evaluation & risk assessment</li>
+                        <li>Multimodal LLM evaluation and risk</li>
                         <li>AI adoption metrics design</li>
                         <li>Responsible AI go/no-go judgment</li>
-                        <li>Self-serve AI platform product definition</li>
                       </ul>
                     </div>
-
                     <div className="case-skill-card">
-                      <h3>Leadership & Program Skills</h3>
+                      <h3>Program Leadership</h3>
                       <ul>
                         <li>0-to-1 program creation without mandate</li>
                         <li>Org-wide change management</li>
                         <li>Proof-of-concept as persuasion strategy</li>
-                        <li>Cross-functional team assembly via business case</li>
-                        <li>Capability transfer vs. centralization thinking</li>
+                        <li>Cross-functional team assembly</li>
+                        <li>Capability transfer over centralization</li>
                         <li>Stakeholder education at scale</li>
-                        <li>Disciplined scope management</li>
                       </ul>
                     </div>
                   </div>
                 </section>
 
+                {/* LESSONS */}
                 <section id="lessons" className="case-section">
-                  <h2>What I Learned</h2>
-                  <p>
-                    Technology adoption is a human problem before it is a technical one. The internal LLM infrastructure already existed before I started this program.
-                    The barrier was imagination — not access. Closing that gap required education, demonstration, and a proof-of-concept that made the abstract tangible.
-                  </p>
-                  <p>
-                    The highest-leverage decision I made was building RAGSaaS as a self-serve platform rather than a centrally-managed service. A centralized model would have made
-                    the Data Science team a permanent bottleneck. RAGSaaS transferred capability to end users — and the 60+ agents engineers built independently are proof that the right
-                    infrastructure decision multiplies impact far beyond what any single team can deliver.
-                  </p>
-                  <p>
-                    The two paused use cases weren't failures. They were honest assessments of where current AI capabilities met the limits of available data quality. Shipping a tool that
-                    doesn't work reliably in a manufacturing environment is worse than not shipping at all. The department's continued trust — and leadership's active sponsorship of new AI exploration —
-                    is partly a result of those disciplined pauses.
-                  </p>
+                  <div className="section-label">What I Learned</div>
+                  <h2>Honest Reflection</h2>
+                  <div className="lesson-cards">
+                    <div className="lesson-card">
+                      <div className="lesson-icon">🧠</div>
+                      <div className="lesson-content">
+                        <div className="lesson-title">Adoption is a human problem before a technical one</div>
+                        <div className="lesson-body">The AI infrastructure existed before I started. The barrier was imagination, not access. Closing that gap required education, demonstration, and a proof-of-concept that made the abstract tangible.</div>
+                      </div>
+                    </div>
+                    <div className="lesson-card">
+                      <div className="lesson-icon">⚡</div>
+                      <div className="lesson-content">
+                        <div className="lesson-title">The self-serve platform was the highest-leverage decision</div>
+                        <div className="lesson-body">It transferred capability to every person in the organization. The 60+ tools they built independently are the proof. Centralization would have made the technical team a permanent bottleneck.</div>
+                      </div>
+                    </div>
+                    <div className="lesson-card">
+                      <div className="lesson-icon">🛑</div>
+                      <div className="lesson-content">
+                        <div className="lesson-title">Knowing when not to ship is a product skill</div>
+                        <div className="lesson-body">The two paused use cases protected organizational trust. That trust compounds. Leadership's active sponsorship of new AI initiatives is partly a result of those disciplined pauses.</div>
+                      </div>
+                    </div>
+                  </div>
                 </section>
+
               </div>
             </div>
 

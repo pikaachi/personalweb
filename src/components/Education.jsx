@@ -1,6 +1,84 @@
 import { useEffect, useRef } from "react";
 import "../styles/education.css";
 
+const EDUCATION = [
+  {
+    id: "ut-austin",
+    logo: "/logos/ut-austin.png",
+    alt: "UT Austin logo",
+    title: "Post-Graduate Program in AI & Machine Learning",
+    institution: "The University of Texas at Austin",
+    link: null,
+  },
+  {
+    id: "uta",
+    logo: "/logos/uta.png",
+    alt: "UT Arlington logo",
+    title: "B.S. in Mechanical Engineering",
+    institution: "The University of Texas at Arlington",
+    badge: null,
+    link: null,
+  },
+];
+
+const CERTIFICATIONS = [
+  {
+    id: "aws",
+    logo: "/logos/aws.png",
+    alt: "AWS logo",
+    title: "AWS AI Certified Practitioner",
+    institution: "Amazon Web Services · Early Adopter",
+    link: "https://www.credly.com/badges/eb5bbfd4-bd26-48ff-9395-19b6dcab5fb0/public_url",
+  },
+  {
+    id: "cspo",
+    logo: "/logos/scrum-alliance.png",
+    alt: "Scrum Alliance logo",
+    title: "Certified Scrum Product Owner (CSPO)",
+    institution: "Scrum Alliance",
+    link: "https://bcert.me/syjadithd",
+  },
+  {
+    id: "pmdojo",
+    logo: "/logos/pmdojo.png",
+    alt: "PMDojo logo",
+    title: "Certified Product Manager",
+    institution: "PMDojo",
+    badge: null,
+    link: null,
+  },
+];
+
+function EduCard({ item, delay }) {
+  return (
+    <div className="edu-card reveal" style={{ transitionDelay: delay }}>
+      <div className="edu-card-top" />
+      <img src={item.logo} alt={item.alt} className="edu-logo" />
+      <div className="edu-card-body">
+        <div className="edu-card-title-row">
+          <div className="edu-title">{item.title}</div>
+          {item.badge && (
+            <span className={`edu-badge edu-badge--${item.badgeType}`}>
+              {item.badge}
+            </span>
+          )}
+        </div>
+        <div className="edu-meta">{item.institution}</div>
+        {item.link && (
+          <a
+            className="credential-link"
+            href={item.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Verify Credential →
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Education() {
   const sectionRef = useRef(null);
 
@@ -14,15 +92,11 @@ export default function Education() {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-
-          requestAnimationFrame(() => {
-            entry.target.classList.add("is-visible");
-          });
-
+          requestAnimationFrame(() => entry.target.classList.add("is-visible"));
           io.unobserve(entry.target);
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
     );
 
     items.forEach((el) => io.observe(el));
@@ -32,125 +106,37 @@ export default function Education() {
   return (
     <section className="section" id="education" ref={sectionRef}>
       <div className="section-inner">
-        <h2 className="section-title reveal">Education & Certifications</h2>
-        <p className="section-subtitle reveal" style={{ transitionDelay: "80ms" }}>
-          Formal training and professional credentials supporting AI, product, and platform leadership.
+
+        <div className="edu-eyebrow reveal">Credentials</div>
+        <h2 className="section-title reveal" style={{ transitionDelay: "60ms" }}>
+          Education & Certifications
+        </h2>
+        <p className="section-subtitle reveal" style={{ transitionDelay: "120ms" }}>
+          Deliberately building toward AI product leadership — an engineering foundation, a machine learning graduate program, and hands-on AI certifications.
         </p>
 
         <div className="edu-grid">
 
           {/* LEFT: EDUCATION */}
           <div className="edu-column">
-            <h3 className="edu-heading reveal" style={{ transitionDelay: "120ms" }}>
+            <div className="edu-col-label reveal" style={{ transitionDelay: "140ms" }}>
               Education
-            </h3>
-
-            <div className="edu-card reveal" style={{ transitionDelay: "160ms" }}>
-              <img
-                src="/logos/ut-austin.png"
-                alt="UT Austin logo"
-                className="edu-logo"
-              />
-              <div>
-                <div className="edu-title">
-                  Post Graduate Degree in AI / ML
-                </div>
-                <div className="edu-meta">
-                  The University of Texas at Austin
-                </div>
-              </div>
             </div>
-
-            <div className="edu-card reveal" style={{ transitionDelay: "220ms" }}>
-              <img
-                src="/logos/uta.png"
-                alt="UT Arlington logo"
-                className="edu-logo"
-              />
-              <div>
-                <div className="edu-title">
-                  B.S. in Mechanical Engineering
-                </div>
-                <div className="edu-meta">
-                  The University of Texas at Arlington
-                </div>
-              </div>
-            </div>
+            {EDUCATION.map((item, idx) => (
+              <EduCard key={item.id} item={item} delay={`${180 + idx * 70}ms`} />
+            ))}
           </div>
 
           {/* RIGHT: CERTIFICATIONS */}
           <div className="edu-column">
-            <h3 className="edu-heading reveal" style={{ transitionDelay: "120ms" }}>
+            <div className="edu-col-label reveal" style={{ transitionDelay: "140ms" }}>
               Certifications
-            </h3>
-
-            <div className="edu-card reveal" style={{ transitionDelay: "160ms" }}>
-              <img
-                src="/logos/aws.png"
-                alt="AWS logo"
-                className="edu-logo"
-              />
-              <div>
-                <div className="edu-title">
-                  AWS AI Certified Practitioner (Early Adopter)
-                </div>
-                <div className="edu-meta">
-                  Amazon Web Services
-                </div>
-                <a
-                  className="credential-link"
-                  href="https://www.credly.com/badges/eb5bbfd4-bd26-48ff-9395-19b6dcab5fb0/public_url"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Verify Credential →
-                </a>
-
-              </div>
             </div>
-
-            <div className="edu-card reveal" style={{ transitionDelay: "220ms" }}>
-              <img
-                src="/logos/scrum-alliance.png"
-                alt="Scrum Alliance logo"
-                className="edu-logo"
-              />
-              <div>
-                <div className="edu-title">
-                  Certified Scrum Product Owner (CSPO)
-                </div>
-                <div className="edu-meta">
-                  Scrum Alliance
-                </div>
-                <a
-                  className="credential-link"
-                  href="https://bcert.me/syjadithd"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Verify Credential →
-                </a>
-
-              </div>
-            </div>
-
-            <div className="edu-card reveal" style={{ transitionDelay: "280ms" }}>
-              <img
-                src="/logos/pmdojo.png"
-                alt="PMDojo logo"
-                className="edu-logo"
-              />
-              <div>
-                <div className="edu-title">
-                  Certified Product Manager
-                </div>
-                <div className="edu-meta">
-                  PMDojo
-                </div>
-              </div>
-            </div>
-
+            {CERTIFICATIONS.map((item, idx) => (
+              <EduCard key={item.id} item={item} delay={`${180 + idx * 70}ms`} />
+            ))}
           </div>
+
         </div>
       </div>
     </section>

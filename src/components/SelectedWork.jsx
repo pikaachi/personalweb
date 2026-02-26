@@ -1,43 +1,58 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/selectedWork.css";
 
 const WORK_ITEMS = [
   {
     id: "optic",
-    tag: "SemiAgentic Workflow Enhancement",
+    tag: "Agentic AI · Knowledge Automation",
     title: "OPTIC",
-    subtitle: "From 1–2 Hours to 15 Seconds",
+    subtitle: "Replacing Senior Expert Escalation Chains With AI",
+    metrics: [
+      { val: "92%", label: "Cycle time cut" },
+      { val: "15 sec", label: "AI latency" },
+      { val: "200+", label: "Daily users" },
+    ],
     bullets: [
-      "RAG-powered AI system that delivers expert-level parameter recommendations in under 15 seconds.",
-      "Replaced a 1–2 hour SME escalation chain for recipe tuning in semiconductor manufacturing.",
-      "Includes results table, guardrails, and lessons learned.",
+      "Built a GenAI system that captures senior expert reasoning and delivers it as AI recommendations in 15 seconds — eliminating a 1 to 2 hour escalation chain.",
+      "Designed production-grade HITL guardrails ensuring every AI recommendation is reviewed before high-stakes use.",
+      "Live in production with 90%+ automated resolution rate across 200+ daily users.",
     ],
     stack: ["Generative AI", "RAG", "HITL Guardrails", "Workflow Modernization"],
     detailsPath: "/work/optic",
   },
   {
     id: "fullmapper",
-    tag: "Predictive Analytics Model",
+    tag: "Predictive Analytics · Cost Elimination",
     title: "Fullmapper",
-    subtitle: "From 16% Chip Coverage to 100%",
+    subtitle: "From Incomplete Data to Full Coverage — No Additional Infrastructure",
+    metrics: [
+      { val: "$1.2M", label: "Annual savings" },
+      { val: "80%", label: "Infrastructure cut" },
+      { val: "30 hrs", label: "Freed per week" },
+    ],
     bullets: [
-      "Predictive analytics model fills 67 missing measurement points from historical data.",
-      "Achieved full wafer coverage at near-zero marginal cost (no additional tools).",
-      "Includes outcomes, tradeoffs, and measured impact.",
+      "Built a predictive ML model that fills critical data gaps using historical patterns — eliminating the need for $1M+ capital equipment.",
+      "Achieved 100% data coverage at near-zero marginal cost, with model accuracy validated daily above the 90% threshold.",
+      "Saved $1.2M annually, freed 30 engineering hours per week, and reduced infrastructure utilization by 80%.",
     ],
     stack: ["Predictive Analytics", "XGBoost", "MLOps", "Cross-Org Leadership"],
     detailsPath: "/work/fullmapper",
   },
   {
     id: "genai-program",
-    tag: "Enterprise Program",
-    title: "GenAI Adoption",
-    subtitle: "From Zero GenAI Awareness to 200+ Daily Users",
+    tag: "Enterprise Program · Org Transformation",
+    title: "GenAI Adoption Program",
+    subtitle: "Building an Enterprise AI Capability From Zero in a Change-Resistant Organization",
+    metrics: [
+      { val: "200+", label: "Daily active users" },
+      { val: "60+", label: "Self-serve AI tools" },
+      { val: "3 of 5", label: "Use cases shipped" },
+    ],
     bullets: [
-      "Self-initiated GenAI adoption program: education, use cases, product delivery, and self-serve capability.",
-      "Shipped 3 products, enabled 60+ self-serve RAG agents, reached 200+ daily active users.",
-      "Includes disciplined pauses and program-level results.",
+      "Self-initiated a full GenAI adoption program with no prior mandate, budget, or team, taking a 300+ person organization vertical from zero AI deployment to 200+ daily active users.",
+      "Built the education program, use case discovery process, product delivery pipeline, and self-serve infrastructure that allowed teams to build AI tools independently.",
+      "Shipped 3 production products and paused 2 with documented rationale — demonstrating disciplined product judgment across the full program.",
     ],
     stack: ["Program Leadership", "Change Management", "LLMs", "RAG", "Org Transformation"],
     detailsPath: "/work/genai-adoption",
@@ -46,7 +61,7 @@ const WORK_ITEMS = [
 
 export default function SelectedWork() {
   const sectionRef = useRef(null);
-  const navigate = useNavigate();
+  const navigate   = useNavigate();
 
   useEffect(() => {
     const root = sectionRef.current;
@@ -61,7 +76,7 @@ export default function SelectedWork() {
           io.unobserve(entry.target);
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
     );
 
     items.forEach((el) => io.observe(el));
@@ -71,38 +86,52 @@ export default function SelectedWork() {
   return (
     <section className="section" id="work" ref={sectionRef}>
       <div className="section-inner">
-        <h2 className="section-title reveal">Highlighted Work</h2>
-        <p className="section-subtitle reveal" style={{ transitionDelay: "80ms" }}>
-          Click on “View Details” to explore in depth. Each project includes the problem context, solution architecture, and measured impact.
+
+        <div className="work-eyebrow reveal">Selected Work</div>
+        <h2 className="section-title reveal" style={{ transitionDelay: "60ms" }}>
+          Highlighted Work
+        </h2>
+        <p className="section-subtitle reveal" style={{ transitionDelay: "120ms" }}>
+          Each project includes the problem context, solution architecture, key decisions, and measured impact.
         </p>
 
         <div className="work-list">
-          {WORK_ITEMS.map((item, idx) => {
-            return (
-              <article
-                key={item.id}
-                className="work-card reveal"
-                style={{ transitionDelay: `${140 + idx * 70}ms` }}
-              >
-                {/* Not clickable */}
-                <div className="work-header" role="group" aria-label={`${item.title} summary`}>
-                  <div className="work-meta">
-                    <span className="work-tag">{item.tag}</span>
-                    <h3 className="work-title">{item.title}</h3>
-                    <p className="work-subtitle">{item.subtitle}</p>
+          {WORK_ITEMS.map((item, idx) => (
+            <article
+              key={item.id}
+              className="work-card reveal"
+              style={{ transitionDelay: `${160 + idx * 80}ms` }}
+            >
+              {/* Top accent bar */}
+              <div className="work-card-top" />
 
-                    <div className="work-chips">
-                      {item.stack.map((s) => (
-                        <span key={s} className="chip">
-                          {s}
-                        </span>
-                      ))}
-                    </div>
+              <div className="work-inner">
+                {/* LEFT — meta */}
+                <div className="work-meta">
+                  <span className="work-tag">{item.tag}</span>
+                  <h3 className="work-title">{item.title}</h3>
+                  <p className="work-subtitle">{item.subtitle}</p>
+
+                  {/* Metric pills */}
+                  <div className="work-metrics">
+                    {item.metrics.map(({ val, label }) => (
+                      <div key={label} className="work-metric-pill">
+                        <span className="wm-val">{val}</span>
+                        <span className="wm-label">{label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stack chips */}
+                  <div className="work-chips">
+                    {item.stack.map((s) => (
+                      <span key={s} className="chip">{s}</span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Always visible preview */}
-                <div className="work-body show">
+                {/* RIGHT — bullets + CTA */}
+                <div className="work-body">
                   <ul>
                     {item.bullets.map((b, i) => (
                       <li key={i}>{b}</li>
@@ -111,21 +140,19 @@ export default function SelectedWork() {
 
                   <div className="work-actions">
                     <button
-                      className="secondary-btn"
+                      className="work-details-btn"
                       type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        navigate(item.detailsPath);
-                      }}
+                      onClick={() => navigate(item.detailsPath)}
                     >
-                      View Details
+                      View Full Details →
                     </button>
                   </div>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+            </article>
+          ))}
         </div>
+
       </div>
     </section>
   );
