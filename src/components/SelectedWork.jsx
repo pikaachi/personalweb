@@ -138,14 +138,6 @@ export default function SelectedWork() {
                     ))}
                   </ul>
 
-                  <div className="work-actions">
-                    <button
-                      className="work-details-btn"
-                      type="button"
-                      onClick={() => navigate(item.detailsPath)}
-                    >
-                      View Full Details →
-                    </button>
                   </div>
                 </div>
               </div>
