@@ -19,7 +19,6 @@ const WORK_ITEMS = [
       "Live in production with 90%+ automated resolution rate across 200+ daily users.",
     ],
     stack: ["Generative AI", "RAG", "HITL Guardrails", "Workflow Modernization"],
-    detailsPath: "/work/optic",
   },
   {
     id: "fullmapper",
@@ -37,7 +36,6 @@ const WORK_ITEMS = [
       "Saved $1.2M annually, freed 30 engineering hours per week, and reduced infrastructure utilization by 80%.",
     ],
     stack: ["Predictive Analytics", "XGBoost", "MLOps", "Cross-Org Leadership"],
-    detailsPath: "/work/fullmapper",
   },
   {
     id: "genai-program",
@@ -55,7 +53,6 @@ const WORK_ITEMS = [
       "Shipped 3 production products and paused 2 with documented rationale — demonstrating disciplined product judgment across the full program.",
     ],
     stack: ["Program Leadership", "Change Management", "LLMs", "RAG", "Org Transformation"],
-    detailsPath: "/work/genai-adoption",
   },
 ];
 
